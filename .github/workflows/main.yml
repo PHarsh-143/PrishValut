@@ -5,16 +5,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Build with Buildozer
-        uses: ArtemSerebrennkov/buildozer-action@v1
+        # Hum official Kivy buildozer action use karenge jo stable hai
+        uses: ArtemSerebrennkov/buildozer-action@v1.6.1
         with:
           buildozer_version: master
           python_version: 3.10
 
       - name: Upload APK
-        uses: actions/upload-artifact@v3
+        # Naya version v4 use kar rahe hain
+        uses: actions/upload-artifact@v4
         with:
           name: PrishVault-APK
           path: bin/*.apk
